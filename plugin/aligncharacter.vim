@@ -134,7 +134,7 @@ endfunction " }}}
 
 " }}}
 
-" De-aligning, or compressing {{{
+" Unaligning, or compressing {{{
 
 " Reversing aligning operation, removing extra spaces
 nnoremap <leader>comp :call Compress(mode())<CR>
