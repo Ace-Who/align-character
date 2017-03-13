@@ -1,6 +1,10 @@
+# vim-align-character
+
+Make occurrences of the specified character on different lines align visually.
+
 ## Usage
 
-```Vimscript
+```Vim script
 <leader>ali    "align a character 
 <leader>comp   "unalign, or remove extra spaces before, a character
 ```
