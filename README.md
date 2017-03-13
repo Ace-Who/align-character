@@ -4,9 +4,9 @@ Make occurrences of the specified character on different lines align visually.
 
 ## Usage
 
-```Vim script
-<leader>ali    "align a character 
-<leader>comp   "unalign, or remove extra spaces before, a character
+```viml
+<leader>ali    " align a character 
+<leader>comp   " unalign, or remove extra spaces before, a character
 ```
 
 User will be prompted to input the target character.
