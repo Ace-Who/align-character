@@ -3,10 +3,10 @@
 " Ask user for a character and align the 1st of that character in every line
 " from current line to the end by inserting spaces. In visual mode, do the
 " same thing only for the selected lines.
-nnoremap <leader>ali :call aligncharacter#align(mode())<CR>
-vnoremap <leader>ali :<C-u>call aligncharacter#align(visualmode())<CR>
+nnoremap <leader>ali :call aligncharacter#Align(mode())<CR>
+xnoremap <leader>ali :<C-u>call aligncharacter#Align(visualmode())<CR>
 
-function! aligncharacter#align(mode, ...) " {{{
+function! aligncharacter#Align(mode, ...) " {{{
 
   let [l:startLN, l:endLN] = a:mode ==? visualmode()
     \ ? [line("'<"), line("'>")]
@@ -82,10 +82,10 @@ endfunction " }}}
 " Unaligning, or compressing {{{
 
 " Reversing aligning operation, removing extra spaces
-nnoremap <leader>comp :call aligncharacter#compress(mode())<CR>
-vnoremap <leader>comp :<C-u>call aligncharacter#compress(visualmode())<CR>
+nnoremap <leader>comp :call aligncharacter#Compress(mode())<CR>
+xnoremap <leader>comp :<C-u>call aligncharacter#Compress(visualmode())<CR>
 
-function! aligncharacter#compress(mode, ...)
+function! aligncharacter#Compress(mode, ...)
 
   let [l:startLN, l:endLN] = a:mode ==? visualmode()
     \ ? [line("'<"), line("'>")]
