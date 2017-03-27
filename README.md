@@ -6,7 +6,7 @@ Make occurrences of the specified character on different lines align visually.
 
 ```viml
 <leader>ali    " align a character 
-<leader>comp   " unalign, or remove extra spaces before, a character
+<leader>unali   " unalign, or remove extra spaces before, a character
 ```
 
 User will be prompted to input the target character.
