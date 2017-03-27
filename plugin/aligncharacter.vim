@@ -1,12 +1,22 @@
+" Set the 'cpoptions' option to its Vim default value and restore it later.
+" This is to enable line-continuation within this script.
+" Refer to :help use-cpo-save.
+let s:save_cpoptions = &cpoptions
+set cpoptions&vim
+
 " Aligning  {{{
 
 " Ask user for a character and align the 1st of that character in every line
 " from current line to the end by inserting spaces. In visual mode, do the
 " same thing only for the selected lines.
-nnoremap <leader>ali :call aligncharacter#Align(mode())<CR>
-xnoremap <leader>ali :<C-u>call aligncharacter#Align(visualmode())<CR>
+nmap <leader>ali <Plug>AligncharacterDoit
+xmap <leader>ali <Plug>AligncharacterDoit
+nnoremap <script> <Plug>AligncharacterDoit <SID>Doit
+xnoremap <script> <Plug>AligncharacterDoit <SID>Doit
+nnoremap <SID>Doit :call <SID>Doit(mode())<CR>
+xnoremap <SID>Doit :<C-u>call <SID>Doit(visualmode())<CR>
 
-function! aligncharacter#Align(mode, ...) " {{{
+function! s:Doit(mode, ...) " {{{
 
   let [l:startLN, l:endLN] = a:mode ==? visualmode()
     \ ? [line("'<"), line("'>")]
@@ -82,10 +92,14 @@ endfunction " }}}
 " Unaligning, or compressing {{{
 
 " Reversing aligning operation, removing extra spaces
-nnoremap <leader>comp :call aligncharacter#Compress(mode())<CR>
-xnoremap <leader>comp :<C-u>call aligncharacter#Compress(visualmode())<CR>
+nmap <leader>unali <Plug>AligncharacterUndo
+xmap <leader>unali <Plug>AligncharacterUndo
+nnoremap <script> <Plug>AligncharacterUndo <SID>Undo
+xnoremap <script> <Plug>AligncharacterUndo <SID>Undo
+nnoremap <SID>Undo :call <SID>Undo(mode())<CR>
+xnoremap <SID>Undo :<C-u>call <SID>Undo(visualmode())<CR>
 
-function! aligncharacter#Compress(mode, ...)
+function! s:Undo(mode, ...)
 
   let [l:startLN, l:endLN] = a:mode ==? visualmode()
     \ ? [line("'<"), line("'>")]
@@ -105,3 +119,6 @@ function! aligncharacter#Compress(mode, ...)
 endfunction
 
 " }}}
+
+let &cpoptions = s:save_cpoptions
+unlet s:save_cpoptions
