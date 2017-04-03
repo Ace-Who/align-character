@@ -111,7 +111,7 @@ function! s:Undo(mode, ...)
     echo 'Remove extra spaces preceding which character? '
     let l:aChar = nr2char(getchar())
   endif
-  let l:aChar = escape(l:aChar, '\')
+  let l:aChar = escape(l:aChar, '\/')
   redraw
   execute l:startLN . ',' . l:endLN . 's/ \+\ze \V' . l:aChar . '//e'
   nohlsearch
