@@ -14,7 +14,7 @@ xmap <leader>ali <Plug>AligncharacterDoit
 nnoremap <script> <Plug>AligncharacterDoit <SID>Doit
 xnoremap <script> <Plug>AligncharacterDoit <SID>Doit
 nnoremap <SID>Doit :call <SID>Doit(mode())<CR>
-xnoremap <SID>Doit :<C-u>call <SID>Doit(visualmode())<CR>
+xnoremap <SID>Doit :<C-U>call <SID>Doit(visualmode())<CR>
 
 function! s:Doit(mode, ...) " {{{
 
@@ -97,7 +97,7 @@ xmap <leader>unali <Plug>AligncharacterUndo
 nnoremap <script> <Plug>AligncharacterUndo <SID>Undo
 xnoremap <script> <Plug>AligncharacterUndo <SID>Undo
 nnoremap <SID>Undo :call <SID>Undo(mode())<CR>
-xnoremap <SID>Undo :<C-u>call <SID>Undo(visualmode())<CR>
+xnoremap <SID>Undo :<C-U>call <SID>Undo(visualmode())<CR>
 
 function! s:Undo(mode, ...)
 

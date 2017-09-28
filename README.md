@@ -1,4 +1,4 @@
-# vim-align-character
+# vim-AlignCharacter
 
 Make occurrences of the specified character on different lines align visually.
 
